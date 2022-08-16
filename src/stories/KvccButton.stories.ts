@@ -1,4 +1,4 @@
-import { Meta, Story, StoryFn } from "@storybook/vue3";
+import { Meta, StoryFn } from "@storybook/vue3";
 import KvccButton from "./KvccButton.vue";
 
 // More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
@@ -7,7 +7,7 @@ const meta: Meta<typeof KvccButton> = {
   component: KvccButton,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   argTypes: {
-    color: { type: { name: "enum", value: ["blue", "green", "red"] } },
+    color: { type: { name: "string" } },
     onClick: {},
     size: {
       control: { type: "select" },
@@ -33,26 +33,22 @@ const Template: StoryFn<typeof KvccButton> = (args) => ({
   template: '<kvcc-button v-bind="args" />',
 });
 
-export const Primary = Template.bind({});
+export const Blue = Template.bind({});
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
-Primary.args = {
+Blue.args = {
+  color: "blue",
+  text: "Blue",
+};
+
+export const Green = Template.bind({});
+Green.args = {
+  color: "green",
+  text: "Green",
+};
+
+export const Red = Template.bind({});
+// More on args: https://storybook.js.org/docs/vue/writing-stories/args
+Red.args = {
   color: "red",
-  text: "Button",
-};
-
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: "Button",
-};
-
-export const Large = Template.bind({});
-Large.args = {
-  size: "large",
-  label: "Button",
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: "small",
-  label: "Button",
+  text: "Red",
 };

@@ -1,41 +1,53 @@
 <script lang="ts" setup>
+import { computed } from "@vue/reactivity";
 import { withDefaults } from "vue";
 
 interface Props {
   size?: string;
-  color: string;
+  // TODO: figure out storybook warning
+  // Addon controls: Control of type color only supports string, received "enum" instead
+  color: "string";
   text: string;
   type?: "button" | "submit" | "reset";
 }
 
-withDefaults(defineProps<Props>(), { type: "button" });
+const props = withDefaults(defineProps<Props>(), { type: "button" });
+
+const cssVars = computed(() => ({ "--button-color": props.color }));
 </script>
 
 <template>
-  <button :type="type" :class="color">
+  <button :type="type" :class="color" :style="cssVars">
     <span>{{ text }}</span>
   </button>
 </template>
 
 <style>
-button {
-  font-size: 2rem;
-  color: white;
-  text-shadow: 0 0 0.125rem black;
+:root {
+  --font-size: 2rem;
+  --shadow-color: #444;
+  --shadow-size: calc(var(--font-size) * 0.25);
 }
 
+button {
+  background-color: var(--button-color);
+  font-size: var(--font-size);
+  color: white;
+  text-shadow: 0 0 var(--shadow-size) var(--shadow-color);
+}
+/* 
 .blue {
   background-color: blue;
-  border-color: darkblue;
+  border-color: var(--shadow-color);
 }
 
 .green {
   background-color: green;
-  border-color: darkgreen;
+  border-color: var(--shadow-color);
 }
 
 .red {
   background-color: red;
-  border-color: darkred;
-}
+  border-color: var(--shadow-color);
+} */
 </style>
