@@ -4,9 +4,7 @@ import { withDefaults } from "vue";
 
 interface Props {
   size?: string;
-  // TODO: figure out storybook warning
-  // Addon controls: Control of type color only supports string, received "enum" instead
-  color: "string";
+  color: string;
   text: string;
   type?: "button" | "submit" | "reset";
 }
@@ -35,19 +33,4 @@ button {
   color: white;
   text-shadow: 0 0 var(--shadow-size) var(--shadow-color);
 }
-/* 
-.blue {
-  background-color: blue;
-  border-color: var(--shadow-color);
-}
-
-.green {
-  background-color: green;
-  border-color: var(--shadow-color);
-}
-
-.red {
-  background-color: red;
-  border-color: var(--shadow-color);
-} */
 </style>
