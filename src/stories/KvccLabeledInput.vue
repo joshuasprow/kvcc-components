@@ -25,7 +25,7 @@ defineProps<Props>();
       v-model="model"
       :required="required"
     />
-    <select v-if="type === 'select'" :id="id" :name="id" v-model="model">
+    <select v-else-if="type === 'select'" :id="id" :name="id" v-model="model">
       <!-- Allow a slot for options directly if this is a select input. -->
       <slot />
     </select>

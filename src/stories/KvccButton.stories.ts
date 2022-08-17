@@ -1,4 +1,5 @@
 import { Meta, StoryFn } from "@storybook/vue3";
+import { BUTTON_COLOR, BUTTON_TYPE } from "../types/button";
 import KvccButton from "./KvccButton.vue";
 
 const meta: Meta<typeof KvccButton> = {
@@ -6,7 +7,7 @@ const meta: Meta<typeof KvccButton> = {
   component: KvccButton,
   argTypes: {
     color: {
-      type: { name: "string" },
+      type: { name: "enum", value: BUTTON_COLOR as any },
     },
     disabled: {
       type: { name: "boolean" },
@@ -14,7 +15,7 @@ const meta: Meta<typeof KvccButton> = {
     },
     onClick: {},
     type: {
-      type: { name: "enum", value: ["button", "submit", "reset"] },
+      type: { name: "enum", value: BUTTON_TYPE as any },
     },
   },
 };
