@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import type { InputType } from "../types/input";
+
 interface Props {
   label: string;
-  type: string;
+  type: InputType;
   id: string;
   model: string;
   required: boolean;
@@ -9,70 +11,68 @@ interface Props {
 }
 
 defineProps<Props>();
-
-const classes = [
-  "appearance-none",
-  "px-3",
-  "pb-2",
-  "pt-6",
-  "bg-white",
-  "hover:bg-white",
-  "focus:bg-white",
-  "border",
-  "border-gray-500",
-  "hover:border-blue-700",
-  "focus:border-blue-700",
-  "shadow-sm",
-  "rounded",
-  "focus:shadow-outline",
-  "outline-none",
-  "w-full",
-  "transition-all",
-  "duration-300",
-  "ease-in-out",
-];
-
-const style = {
-  transition: "all 0.25s ease",
-};
 </script>
 
 <template>
-  <div class="relative">
-    <label
-      :for="id"
-      class="
-        absolute
-        top-0
-        left-0
-        mb-1
-        ml-3
-        mt-2
-        text-gray-800 text-xs
-        font-thin
-        pointer-events-none
-      "
-      >{{ label }}</label
-    >
+  <article>
+    <label :for="id">{{ label }}</label>
     <input
       v-if="['text', 'search', 'datalist', 'password'].includes(type)"
       :type="type"
       :id="id"
       :name="id"
-      :class="classes"
       :list="list_id"
       v-model="model"
       :required="required"
     />
-    <select
-      v-if="type === 'select'"
-      :id="id"
-      :name="id"
-      :class="classes"
-      v-model="model"
-    >
+    <select v-if="type === 'select'" :id="id" :name="id" v-model="model">
       <!-- Allow a slot for options directly if this is a select input. -->
       <slot />
     </select>
-  </div>
+  </article>
 </template>
+
+<style>
+article {
+  position: relative;
+}
+
+label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-bottom: 0.25rem;
+  margin-top: 0.5rem;
+  margin-left: 0.75rem;
+  color: #1f2937;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 100;
+  pointer-events: none;
+}
+
+input,
+select {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-bottom: 0.5rem;
+  padding-top: 1.5rem;
+  background-color: #ffffff;
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  border-color: #6b7280;
+  appearance: none;
+  outline: 0;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+input:hover,
+select:hover {
+  background-color: #ffffff;
+  border-color: #1d4ed8;
+}
+</style>
