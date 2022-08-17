@@ -8,6 +8,10 @@ const meta: Meta<typeof KvccButton> = {
     color: {
       type: { name: "string" },
     },
+    disabled: {
+      type: { name: "boolean" },
+      defaultValue: false,
+    },
     onClick: {},
     type: {
       type: { name: "enum", value: ["button", "submit", "reset"] },

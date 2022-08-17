@@ -4,6 +4,7 @@ import { withDefaults } from "vue";
 
 interface Props {
   color?: "blue" | "green" | "red";
+  disabled?: boolean;
   text: string;
   type?: "button" | "submit" | "reset";
 }
@@ -30,7 +31,13 @@ const style = computed(() => ({
 </script>
 
 <template>
-  <button :type="type" :class="color" :style="style">
+  <button
+    :aria-disabled="disabled"
+    :type="type"
+    :class="color"
+    :disabled="disabled"
+    :style="style"
+  >
     <span>{{ text }}</span>
   </button>
 </template>
@@ -55,5 +62,16 @@ button:hover,
 button:active {
   background-color: var(--bg-color-hover);
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+button[disabled]:hover,
+button[disabled]:active {
+  background-color: var(--bg-color);
+  box-shadow: none;
 }
 </style>
