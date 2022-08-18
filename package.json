@@ -15,12 +15,11 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@rushstack/eslint-patch": "^1.1.4",
-    "@vue/eslint-config-typescript": "^11.0.0",
     "vue": "^3.2.37"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
+    "@rushstack/eslint-patch": "^1.1.4",
     "@storybook/addon-actions": "^6.5.10",
     "@storybook/addon-essentials": "^6.5.10",
     "@storybook/addon-interactions": "^6.5.10",
@@ -31,6 +30,7 @@
     "@typescript-eslint/eslint-plugin": "^5.33.1",
     "@typescript-eslint/parser": "^5.33.1",
     "@vitejs/plugin-vue": "^3.0.3",
+    "@vue/eslint-config-typescript": "^11.0.0",
     "babel-loader": "^8.2.5",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
