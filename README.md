@@ -14,3 +14,7 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
 
 You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+
+## Pre-commit hook
+
+In the .git folder, the `pre-commit` script runs `eslint` and `prettier` so you don't make a mess before you push. If you *need* to be a rebel... or it's an emergency, pass `--no-verify` to the commit command and you can skip it.
