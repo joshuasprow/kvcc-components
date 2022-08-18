@@ -24,6 +24,7 @@
     "@storybook/vue3": "^6.5.10",
     "@vitejs/plugin-vue": "^3.0.3",
     "babel-loader": "^8.2.5",
+    "eslint-plugin-vuejs-accessibility": "^1.2.0",
     "typescript": "^4.6.4",
     "vite": "^3.0.7",
     "vue-loader": "^16.8.3",
