@@ -7,7 +7,7 @@ const meta: Meta<typeof KvccButton> = {
   component: KvccButton,
   argTypes: {
     color: {
-      type: { name: "enum", value: BUTTON_COLOR as any },
+      type: { name: "enum", value: BUTTON_COLOR as unknown as string[] },
     },
     disabled: {
       type: { name: "boolean" },
@@ -15,7 +15,7 @@ const meta: Meta<typeof KvccButton> = {
     },
     onClick: {},
     type: {
-      type: { name: "enum", value: BUTTON_TYPE as any },
+      type: { name: "enum", value: BUTTON_TYPE as unknown as string[] },
     },
   },
 };

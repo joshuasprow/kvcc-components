@@ -10,7 +10,7 @@ const meta: Meta<typeof KvccHeading> = {
       type: { name: "string" },
     },
     type: {
-      type: { name: "enum", value: HEADING_TYPES as any },
+      type: { name: "enum", value: HEADING_TYPES as unknown as string[] },
     },
   },
 };

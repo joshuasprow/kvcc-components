@@ -7,7 +7,7 @@ interface Props {
   id: string;
   model: string;
   required: boolean;
-  list_id: string;
+  listId: string;
 }
 
 defineProps<Props>();
@@ -21,7 +21,7 @@ defineProps<Props>();
       :type="type"
       :id="id"
       :name="id"
-      :list="list_id"
+      :list="listId"
       v-model="model"
       :required="required"
     />

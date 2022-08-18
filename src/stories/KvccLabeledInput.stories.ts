@@ -15,7 +15,7 @@ const meta: Meta<typeof KvccLabeledInput> = {
       defaultValue: "Value",
     },
     type: {
-      type: { name: "enum", value: INPUT_TYPES as any },
+      type: { name: "enum", value: INPUT_TYPES as unknown as string[] },
       defaultValue: INPUT_TYPES[0],
     },
   },
