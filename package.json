@@ -6,13 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
     "format": "prettier --check 'src/**/*.{ts,vue}'",
     "format:fix": "npm run format -- --write",
     "lint": "eslint src --ext .ts,.vue --fix",
     "lint:fix": "npm run lint -- --fix",
-    "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook:build": "build-storybook --output-dir docs"
   },
   "dependencies": {
     "vue": "^3.2.37"
