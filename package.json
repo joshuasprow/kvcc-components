@@ -12,7 +12,7 @@
     "lint": "eslint src --ext .ts,.vue --fix",
     "lint:fix": "npm run lint -- --fix",
     "storybook": "start-storybook -p 6006",
-    "storybook:build": "build-storybook --output-dir docs"
+    "storybook:build": "build-storybook --output-dir docs-build"
   },
   "dependencies": {
     "vue": "^3.2.37"
