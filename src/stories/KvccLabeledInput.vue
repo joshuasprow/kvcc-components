@@ -5,12 +5,26 @@ interface Props {
   label: string;
   type: InputType;
   id: string;
-  model: string;
   required: boolean;
   listId: string;
 }
 
 defineProps<Props>();
+
+const emit = defineEmits(["change", "input", "select"]);
+
+const emitEvent = (kind: Parameters<typeof emit>[0], event: Event) => {
+  if (!event.target) {
+    console.error("No target found in event");
+    return;
+  }
+
+  emit(kind, (event.target as HTMLInputElement | HTMLSelectElement).value);
+};
+
+const handleChange = (event: Event) => emitEvent("change", event);
+const handleInput = (event: Event) => emitEvent("input", event);
+const handleSelect = (event: Event) => emitEvent("select", event);
 </script>
 
 <template>
@@ -18,14 +32,21 @@ defineProps<Props>();
     <label :for="id">{{ label }}</label>
     <input
       v-if="['text', 'search', 'datalist', 'password'].includes(type)"
+      @change="handleChange"
+      @input="handleInput"
       :type="type"
       :id="id"
       :name="id"
       :list="listId"
-      v-model="model"
       :required="required"
     />
-    <select v-else-if="type === 'select'" :id="id" :name="id" v-model="model">
+    <select
+      v-else-if="type === 'select'"
+      @change="handleChange"
+      @select="handleSelect"
+      :id="id"
+      :name="id"
+    >
       <!-- Allow a slot for options directly if this is a select input. -->
       <slot />
     </select>
