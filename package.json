@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "lint": "eslint src --ext .ts,.vue",
+    "lint": "eslint src --ext .ts,.vue --fix",
+    "lint:fix": "npm run lint -- --fix",
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
