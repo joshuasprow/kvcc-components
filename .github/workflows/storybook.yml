@@ -22,9 +22,4 @@ jobs:
           npm run storybook:build
 
       - name: Deploy 🚀
-        with:
-          branch: gh-pages
-          clean: true # Automatically remove deleted files from the deploy branch
-          folder: docs-build # The folder that the storybook:build script generates files.
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          target_folder: docs # The folder that we serve our Storybook files from
+        run: npm run storybook:deploy
