@@ -9,11 +9,15 @@ defineProps<{ text: string }>();
   </figure>
 </template>
 
-<style>
+<style scoped>
 figure {
+  --size: 1.5rem;
+
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  width: var(--size);
+  height: var(--size);
 }
 
 @keyframes spin {
@@ -27,8 +31,9 @@ figure {
 
 i {
   margin-right: 0.5rem;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: var(--size);
+  height: var(--size);
+  background-color: #1d4ed8;
   border-radius: 9999px;
   border-width: 4px;
   border-color: #1d4ed8;
