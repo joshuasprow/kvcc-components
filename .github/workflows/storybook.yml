@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - main
-    paths: # Trigger the action only when files change in the folders defined here
-      ["src/**", ".github/workflows/storybook.yml"]
   workflow_dispatch:
 
 jobs:
