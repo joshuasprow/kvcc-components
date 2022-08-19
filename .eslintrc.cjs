@@ -1,3 +1,4 @@
+// FIX: not sure why I can't use modules here
 // eslint-disable-next-line no-undef
 module.exports = {
   root: true,
