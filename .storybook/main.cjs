@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import("@storybook/builder-vite").StorybookViteConfig}*/
+const config = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
     "@storybook/addon-links",
@@ -22,4 +23,7 @@ module.exports = {
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
   },
+  staticDirs: ["../src/assets"],
 };
+
+module.exports = config;
