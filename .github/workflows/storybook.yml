@@ -23,5 +23,5 @@ jobs:
 
       - name: Deploy 🚀
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ github.actor}}:${{ secrets.GITHUB_TOKEN }}
         run: npm run storybook:deploy
