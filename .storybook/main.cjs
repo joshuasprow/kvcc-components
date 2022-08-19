@@ -23,7 +23,6 @@ const config = {
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
   },
-  staticDirs: ["../src/assets"],
 };
 
 module.exports = config;
