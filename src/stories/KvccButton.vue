@@ -13,22 +13,9 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), { type: "button" });
 
-const colors = computed(() => {
-  switch (props.color) {
-    case "blue":
-      return ["#1d4ed8", "#1e40af"];
-    case "green":
-      return ["#047857", "#065f46"];
-    case "red":
-      return ["#b91c1c", "#991b1b"];
-    default:
-      return ["#334155", "#1e293b"];
-  }
-});
-
 const style = computed(() => ({
-  "--bg-color": colors.value[0],
-  "--bg-color-hover": colors.value[1],
+  "--bg-color": `var(--${props.color || "primary"})`,
+  "--bg-color-hover": `var(--${props.color || "primary"}-dark)`,
 }));
 </script>
 
@@ -45,8 +32,9 @@ const style = computed(() => ({
 </template>
 
 <style>
+@import "../styles/colors.css";
 button {
-  color: white;
+  color: var(--white);
   background-color: var(--bg-color);
   transition-property: all;
   transition-duration: 300ms;
@@ -56,14 +44,14 @@ button {
   border: 1px solid var(--bg-color-hover);
   border-radius: 0.25rem;
   cursor: pointer;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px 0 var(--shadow-color);
   padding: 0.75rem 1rem;
 }
 
 button:hover,
 button:active {
   background-color: var(--bg-color-hover);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+  box-shadow: 0 0 0 3px var(--shadow-blue);
 }
 
 button[disabled] {
