@@ -23,6 +23,13 @@ const config = {
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
   },
+  viteFinal: (config, { configType }) => {
+    if (configType === "PRODUCTION") {
+      config.base = "./";
+    }
+
+    return config;
+  },
 };
 
 module.exports = config;
