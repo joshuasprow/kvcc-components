@@ -13,7 +13,7 @@
     "lint:fix": "npm run lint -- --fix",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook --output-dir docs",
-    "storybook:deploy": "storybook-to-ghpages --existing-output-dir docs"
+    "storybook:deploy": "storybook-to-ghpages --existing-output-dir docs --source-branch main"
   },
   "dependencies": {
     "vue": "^3.2.37"
