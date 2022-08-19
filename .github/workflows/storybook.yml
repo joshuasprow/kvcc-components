@@ -4,7 +4,7 @@ on:
     branches:
       - main
     paths: # Trigger the action only when files change in the folders defined here
-      ["stories/**", "src/components/**", ".github/workflows/storybook.yml"]
+      ["src/**", ".github/workflows/storybook.yml"]
   workflow_dispatch:
 
 jobs:
