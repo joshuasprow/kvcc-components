@@ -49,7 +49,7 @@ const handleInput = (event: Event) => {
 </template>
 
 <style scoped>
-input:valid {
+input[type="email"]:valid {
   border-color: var(--green-light);
 }
 
