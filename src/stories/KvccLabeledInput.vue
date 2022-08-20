@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { computed } from "@vue/reactivity";
 import "../styles/main.css";
-import type { InputType } from "../types/input";
+import { InputType } from "../types/input";
 
 interface Props {
   label: string;
@@ -8,15 +9,17 @@ interface Props {
   id: string /* required for linking label to input */;
   required?: boolean;
   listId?: string;
+  value?: string;
 }
 
 interface Emits {
   (event: "change" | "input" | "select", value: string): void;
 }
 
-defineProps<Props>();
-
+const props = defineProps<Props>();
 const emit = defineEmits<Emits>();
+
+const _type = computed(() => (props.type ? props.type : InputType.TEXT));
 
 const emitEvent = (kind: Parameters<typeof emit>[0], event: Event) => {
   if (!event.target) {
@@ -37,22 +40,28 @@ const handleSelect = (event: Event) => emitEvent("select", event);
     <label :for="id">
       {{ label }}
     </label>
-    <input
-      v-if="type && ['text', 'search', 'datalist', 'password'].includes(type)"
-      @change="handleChange"
-      @input="handleInput"
-      :type="type"
-      :id="id"
-      :name="id"
-      :list="listId"
-      :required="required"
-    />
+
+    <template v-if="_type !== InputType.SELECT">
+      <input
+        @change="handleChange"
+        @input="handleInput"
+        :type="_type"
+        :id="id"
+        :name="id"
+        :list="listId"
+        :required="required"
+        :value="value"
+      />
+      <slot v-if="_type === InputType.SEARCH" />
+    </template>
+
     <select
       v-else-if="type === 'select'"
       @blur="handleChange"
       @select="handleSelect"
       :id="id"
       :name="id"
+      :value="value"
     >
       <!-- Allow a slot for options directly if this is a select input. -->
       <slot />

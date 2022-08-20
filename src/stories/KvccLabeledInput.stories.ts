@@ -6,18 +6,39 @@ const meta: Meta<typeof KvccLabeledInput> = {
   title: "Example/KVCC Labeled Input",
   component: KvccLabeledInput,
   argTypes: {
-    id: { name: "string", defaultValue: "input" },
+    /** the default slot */
+    default: {
+      if: {
+        arg: "type",
+        eq: [InputType.SEARCH, InputType.SELECT],
+      },
+    },
+
+    /** props */
+    id: {
+      type: { name: "string", required: true },
+      defaultValue: "input-1",
+    },
     label: {
-      type: { name: "string" },
+      type: { name: "string", required: true },
       defaultValue: "Label",
     },
-    model: {
-      type: { name: "string" },
-      defaultValue: "Value",
+    listId: {
+      type: { name: "string", required: false },
+      if: { arg: "type", eq: InputType.SEARCH },
+      defaultValue: "list-1",
+    },
+    required: {
+      type: { name: "boolean", required: false },
+      defaultValue: false,
     },
     type: {
-      type: { name: "enum", value: InputType as unknown as string[] },
+      type: { name: "enum", required: true, value: Object.values(InputType) },
       defaultValue: InputType.TEXT,
+    },
+    value: {
+      type: { name: "string", required: false },
+      defaultValue: "Value",
     },
   },
 };
@@ -29,10 +50,33 @@ const Template: StoryFn<typeof KvccLabeledInput> = (args) => ({
   setup() {
     return { args };
   },
-  template: '<kvcc-labeled-input v-bind="args" />',
+  template: `<KvccLabeledInput v-bind="args">
+<template v-if="${"default" in args}" v-slot>
+  ${args.default}
+</template>
+</KvccLabeledInput>`,
 });
 
 export const Default = Template.bind({});
-Default.args = {
-  // text: "Default",
+Default.args = {};
+
+export const Search = Template.bind({});
+Search.args = {
+  default: `<datalist id="list-1">
+<option value="option-1">option-1</option>
+<option value="option-2">option-2</option>
+<option value="option-3">option-3</option>
+</datalist>`,
+  listId: "list-1",
+  type: InputType.SEARCH,
+  value: "option-2",
+};
+
+export const Select = Template.bind({});
+Select.args = {
+  default: `<option value="option-1">option-1</option>
+<option value="option-2">option-2</option>
+<option value="option-3">option-3</option>`,
+  type: InputType.SELECT,
+  value: "option-2",
 };
