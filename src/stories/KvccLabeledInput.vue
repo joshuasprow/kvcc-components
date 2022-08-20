@@ -49,6 +49,10 @@ const handleInput = (event: Event) => {
 </template>
 
 <style scoped>
+input:valid {
+  border-color: var(--green-light);
+}
+
 input::-webkit-search-cancel-button {
   appearance: none;
 }

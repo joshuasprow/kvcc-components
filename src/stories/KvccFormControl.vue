@@ -49,11 +49,12 @@ defineProps<{ inputId: string; label: string; required?: boolean }>();
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%;
   border-radius: 0.25rem;
-  border-width: 1px;
+  border-width: 2px;
   border-color: #6b7280;
+  border-style: solid;
   appearance: none;
   outline: 0;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
 }
 
 .form-control input:hover,

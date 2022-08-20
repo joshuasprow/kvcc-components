@@ -58,6 +58,11 @@ const Template: StoryFn<typeof KvccLabeledInput> = (args) => ({
 export const Default = Template.bind({});
 Default.args = {};
 
+export const Email = Template.bind({});
+Email.args = {
+  type: InputType.EMAIL,
+};
+
 export const Password = Template.bind({});
 Password.args = {
   type: InputType.PASSWORD,
