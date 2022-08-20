@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { HeadingType } from "../types/heading";
+import "../styles/main.css";
 
 defineProps<{ type: HeadingType; text: string }>();
 </script>

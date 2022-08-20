@@ -2,6 +2,7 @@
 import { computed } from "@vue/reactivity";
 import { withDefaults } from "vue";
 import { ButtonColor, ButtonType } from "../types/button";
+import "../styles/main.css";
 
 interface Props {
   // eslint-disable-next-line vue/require-default-prop
@@ -32,7 +33,6 @@ const style = computed(() => ({
 </template>
 
 <style>
-@import "../styles/colors.css";
 button {
   color: var(--white);
   background-color: var(--bg-color);

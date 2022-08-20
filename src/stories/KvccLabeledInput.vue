@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { InputType } from "../types/input";
+import "../styles/main.css";
 
 interface Props {
   label: string;

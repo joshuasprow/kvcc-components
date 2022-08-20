@@ -1,0 +1,65 @@
+/* Thanks! https://github.com/majodev/google-webfonts-helper */
+
+/* pt-sans-regular - latin */
+@font-face {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/pt-sans-v17-latin-regular.eot");
+  src: local(""),
+    url("../fonts/pt-sans-v17-latin-regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/pt-sans-v17-latin-regular.woff2") format("woff2"),
+    url("../fonts/pt-sans-v17-latin-regular.woff") format("woff"),
+    url("../fonts/pt-sans-v17-latin-regular.ttf") format("truetype"),
+    url("../fonts/pt-sans-v17-latin-regular.svg#PTSans") format("svg");
+}
+
+/* roboto-regular - latin */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/roboto-v30-latin-regular.eot");
+  src: local(""),
+    url("../fonts/roboto-v30-latin-regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/roboto-v30-latin-regular.woff2") format("woff2"),
+    url("../fonts/roboto-v30-latin-regular.woff") format("woff"),
+    url("../fonts/roboto-v30-latin-regular.ttf") format("truetype"),
+    url("../fonts/roboto-v30-latin-regular.svg#Roboto") format("svg");
+}
+
+/* Thanks! https://css-tricks.com/snippets/css/fluid-typography/ */
+html {
+  font-size: 16px;
+}
+@media screen and (min-width: 320px) {
+  html {
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
+}
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: 22px;
+  }
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label,
+textarea {
+  font-family: "PT Sans", sans-serif;
+}
+
+button,
+input,
+select,
+label {
+  font-family: "Roboto", sans-serif;
+}

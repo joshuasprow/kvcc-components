@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import "../styles/main.css";
+
 defineProps<{ text: string }>();
 </script>
 
