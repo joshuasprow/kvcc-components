@@ -58,6 +58,11 @@ const Template: StoryFn<typeof KvccLabeledInput> = (args) => ({
 export const Default = Template.bind({});
 Default.args = {};
 
+export const Password = Template.bind({});
+Password.args = {
+  type: InputType.PASSWORD,
+};
+
 export const Search = Template.bind({});
 Search.args = {
   default: `<datalist id="list-1">
