@@ -2,6 +2,7 @@
 import KvccButton from "./KvccButton.vue";
 import KvccForm from "./KvccForm.vue";
 import KvccLabeledInput from "./KvccLabeledInput.vue";
+import { InputType } from "../types/input";
 
 const handleSubmit = (data: FormData) => {
   data.forEach((value, key) => {
@@ -12,9 +13,9 @@ const handleSubmit = (data: FormData) => {
 
 <template>
   <KvccForm @submit="handleSubmit">
-    <KvccLabeledInput label="name" type="text" id="name" />
-    <KvccLabeledInput label="email" type="text" id="email" />
-    <KvccLabeledInput label="message" type="text" id="message" />
+    <KvccLabeledInput label="name" :type="InputType.TEXT" id="name" />
+    <KvccLabeledInput label="email" :type="InputType.TEXT" id="email" />
+    <KvccLabeledInput label="message" :type="InputType.TEXT" id="message" />
 
     <KvccButton text="Send It" type="submit" />
   </KvccForm>

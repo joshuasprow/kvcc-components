@@ -1,11 +1,12 @@
 import { Meta, StoryFn } from "@storybook/vue3";
-import { INPUT_TYPES } from "../types/input";
+import { InputType } from "../types/input";
 import KvccLabeledInput from "./KvccLabeledInput.vue";
 
 const meta: Meta<typeof KvccLabeledInput> = {
   title: "Example/KVCC Labeled Input",
   component: KvccLabeledInput,
   argTypes: {
+    id: { name: "string", defaultValue: "input" },
     label: {
       type: { name: "string" },
       defaultValue: "Label",
@@ -15,8 +16,8 @@ const meta: Meta<typeof KvccLabeledInput> = {
       defaultValue: "Value",
     },
     type: {
-      type: { name: "enum", value: INPUT_TYPES as unknown as string[] },
-      defaultValue: INPUT_TYPES[0],
+      type: { name: "enum", value: InputType as unknown as string[] },
+      defaultValue: InputType.TEXT,
     },
   },
 };
