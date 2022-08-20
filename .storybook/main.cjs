@@ -23,13 +23,14 @@ const config = {
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     },
   },
-  // viteFinal: (config, { configType }) => {
-  //   if (configType === "PRODUCTION") {
-  //     config.base = "./";
-  //   }
+  viteFinal: (config, { configType }) => {
+    if (configType === "PRODUCTION") {
+      // fixes absolute path to iframe.html, allowing successful deployment to github pages
+      config.base = "./";
+    }
 
-  //   return config;
-  // },
+    return config;
+  },
 };
 
 module.exports = config;
