@@ -1,4 +1,7 @@
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+import { withSource } from "./with-source";
+
+export const decorators = [withSource];
 
 /** @type {import("@storybook/vue3").Parameters} */
 export const parameters = {
