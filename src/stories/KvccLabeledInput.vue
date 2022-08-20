@@ -10,9 +10,13 @@ interface Props {
   listId?: string;
 }
 
+interface Emits {
+  (event: "change" | "input" | "select", value: string): void;
+}
+
 defineProps<Props>();
 
-const emit = defineEmits(["change", "input", "select"]);
+const emit = defineEmits<Emits>();
 
 const emitEvent = (kind: Parameters<typeof emit>[0], event: Event) => {
   if (!event.target) {
