@@ -1,4 +1,4 @@
-// FIX: not sure why I can't use modules here
+// FIX: not sure why I can't use modules here. ex: "export default {};"
 // eslint-disable-next-line no-undef
 module.exports = {
   root: true,
@@ -23,6 +23,8 @@ module.exports = {
       "error",
       {
         required: {
+          // TODO: should include "nested", but current layout won't work
+          // with nested inputs. ex: <KvccLabeledInput />
           every: ["id"],
         },
       },
