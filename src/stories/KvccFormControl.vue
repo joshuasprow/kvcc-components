@@ -16,6 +16,7 @@ defineProps<{ inputId: string; label: string; required?: boolean }>();
 <style>
 .form-control {
   position: relative;
+  margin-bottom: 1rem;
 }
 
 .form-control label {

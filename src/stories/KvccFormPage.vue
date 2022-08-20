@@ -14,7 +14,7 @@ const handleSubmit = (data: FormData) => {
 <template>
   <KvccForm @submit="handleSubmit">
     <KvccLabeledInput label="name" :type="InputType.TEXT" id="name" />
-    <KvccLabeledInput label="email" :type="InputType.TEXT" id="email" />
+    <KvccLabeledInput label="email" :type="InputType.EMAIL" id="email" />
     <KvccLabeledInput label="message" :type="InputType.TEXT" id="message" />
 
     <KvccButton text="Send It" type="submit" />

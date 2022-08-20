@@ -23,6 +23,10 @@ const meta: Meta = {
       if: { arg: "type", eq: InputType.SEARCH },
       defaultValue: "list-1",
     },
+    placeholder: {
+      type: { name: "string", required: false },
+      defaultValue: "Placeholder",
+    },
     required: {
       type: { name: "boolean", required: false },
       defaultValue: false,

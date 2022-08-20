@@ -4,7 +4,10 @@ import KvccFormPage from "./KvccFormPage.vue";
 const meta: Meta<typeof KvccFormPage> = {
   title: "Example/KVCC Form Page",
   component: KvccFormPage,
-  argTypes: {},
+  argTypes: {
+    /** actions */
+    onSubmit: {},
+  },
 };
 
 export default meta;
