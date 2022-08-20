@@ -5,10 +5,8 @@ const meta: Meta = {
   title: "Example/KVCC Labeled Select",
   component: KvccLabeledSelect,
   argTypes: {
-    /** the default slot */
-    default: {
-      type: { name: "string", required: true },
-    },
+    /** actions */
+    onInput: {},
 
     /** props */
     id: {
@@ -26,6 +24,11 @@ const meta: Meta = {
     value: {
       type: { name: "string", required: false },
       defaultValue: "option-2",
+    },
+
+    /** slots */
+    default: {
+      type: { name: "string", required: true },
     },
   },
 };

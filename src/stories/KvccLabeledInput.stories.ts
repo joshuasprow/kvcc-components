@@ -6,10 +6,8 @@ const meta: Meta = {
   title: "Example/KVCC Labeled Input",
   component: KvccLabeledInput,
   argTypes: {
-    /** the default slot */
-    default: {
-      if: { arg: "type", eq: InputType.SEARCH },
-    },
+    /** actions */
+    onInput: {},
 
     /** props */
     id: {
@@ -36,6 +34,11 @@ const meta: Meta = {
     value: {
       type: { name: "string", required: false },
       defaultValue: "Value",
+    },
+
+    /** slots */
+    default: {
+      if: { arg: "type", eq: InputType.SEARCH },
     },
   },
 };
