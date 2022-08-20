@@ -1,26 +1,21 @@
 <script setup lang="ts">
-import { computed } from "@vue/reactivity";
 import "../styles/main.css";
-import { InputType } from "../types/input";
 import KvccFormControl from "./KvccFormControl.vue";
 
 interface Props {
   label: string;
-  type?: InputType;
   id: string /* required for linking label to input */;
   required?: boolean;
-  listId?: string;
   value?: string;
 }
 
 interface Emits {
-  (event: "change" | "input" | "select", value: string): void;
+  (event: "blur" | "select", value: string): void;
 }
 
-const props = defineProps<Props>();
-const emit = defineEmits<Emits>();
+defineProps<Props>();
 
-const _type = computed(() => (props.type ? props.type : InputType.TEXT));
+const emit = defineEmits<Emits>();
 
 const emitEvent = (kind: Parameters<typeof emit>[0], event: Event) => {
   if (!event.target) {
@@ -31,29 +26,21 @@ const emitEvent = (kind: Parameters<typeof emit>[0], event: Event) => {
   emit(kind, (event.target as HTMLInputElement | HTMLSelectElement).value);
 };
 
-const handleChange = (event: Event) => emitEvent("change", event);
-const handleInput = (event: Event) => emitEvent("input", event);
+const handleBlur = (event: Event) => emitEvent("blur", event);
+const handleSelect = (event: Event) => emitEvent("select", event);
 </script>
 
 <template>
   <KvccFormControl :input-id="id" :label="label" :required="required">
     <!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label -->
-    <input
-      @change="handleChange"
-      @input="handleInput"
-      :type="_type"
+    <select
+      @blur="handleBlur"
+      @select="handleSelect"
       :id="id"
       :name="id"
-      :list="listId"
-      :required="required"
       :value="value"
-    />
-    <slot v-if="_type === InputType.SEARCH" />
+    >
+      <slot />
+    </select>
   </KvccFormControl>
 </template>
-
-<style scoped>
-input::-webkit-search-cancel-button {
-  appearance: none;
-}
-</style>

@@ -2,16 +2,13 @@ import { Meta, StoryFn } from "@storybook/vue3";
 import { InputType } from "../types/input";
 import KvccLabeledInput from "./KvccLabeledInput.vue";
 
-const meta: Meta<typeof KvccLabeledInput> = {
+const meta: Meta = {
   title: "Example/KVCC Labeled Input",
   component: KvccLabeledInput,
   argTypes: {
     /** the default slot */
     default: {
-      if: {
-        arg: "type",
-        eq: [InputType.SEARCH, InputType.SELECT],
-      },
+      if: { arg: "type", eq: InputType.SEARCH },
     },
 
     /** props */
@@ -50,11 +47,9 @@ const Template: StoryFn<typeof KvccLabeledInput> = (args) => ({
   setup() {
     return { args };
   },
-  template: `<KvccLabeledInput v-bind="args">
-<template v-if="${"default" in args}" v-slot>
-  ${args.default}
-</template>
-</KvccLabeledInput>`,
+  template: `<kvcc-labeled-input v-bind="args">
+<template v-if="${"default" in args}" v-slot>${args.default}</template>
+</kvcc-labeled-input>`,
 });
 
 export const Default = Template.bind({});
@@ -69,14 +64,5 @@ Search.args = {
 </datalist>`,
   listId: "list-1",
   type: InputType.SEARCH,
-  value: "option-2",
-};
-
-export const Select = Template.bind({});
-Select.args = {
-  default: `<option value="option-1">option-1</option>
-<option value="option-2">option-2</option>
-<option value="option-3">option-3</option>`,
-  type: InputType.SELECT,
   value: "option-2",
 };

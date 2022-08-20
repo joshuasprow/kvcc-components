@@ -2,7 +2,6 @@ export enum InputType {
   TEXT = "text",
   SEARCH = "search",
   PASSWORD = "password",
-  SELECT = "select",
 }
 
 export const isInputType = (value: unknown): value is InputType => {
