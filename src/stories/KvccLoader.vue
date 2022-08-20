@@ -7,7 +7,6 @@ defineProps<{ text: string }>();
 <template>
   <figure>
     <i ref="icon"></i>
-    <label>{{ text }}</label>
   </figure>
 </template>
 
@@ -35,12 +34,12 @@ i {
   margin-right: 0.5rem;
   width: var(--size);
   height: var(--size);
-  background-color: #1d4ed8;
+  background-color: var(--blue);
   border-radius: 9999px;
   border-width: 4px;
-  border-color: #1d4ed8;
-  border-top-color: #63b3ed;
-  filter: drop-shadow(0 0 0.0625rem #63b3ed);
+  border-color: var(--blue-dark);
+  border-top-color: var(--teal);
+  filter: drop-shadow(0 0 0.0625rem var(--teal));
   animation: spin 1s linear infinite;
 }
 </style>

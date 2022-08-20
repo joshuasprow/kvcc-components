@@ -30,7 +30,9 @@ const handleSelect = (event: Event) => emitEvent("select", event);
 
 <template>
   <article class="labeled-input">
-    <label :for="id">{{ label }}</label>
+    <label :for="id">
+      {{ label }}
+    </label>
     <input
       v-if="type && ['text', 'search', 'datalist', 'password'].includes(type)"
       @change="handleChange"
@@ -43,7 +45,7 @@ const handleSelect = (event: Event) => emitEvent("select", event);
     />
     <select
       v-else-if="type === 'select'"
-      @change="handleChange"
+      @blur="handleChange"
       @select="handleSelect"
       :id="id"
       :name="id"

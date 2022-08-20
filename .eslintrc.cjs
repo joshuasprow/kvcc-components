@@ -7,15 +7,25 @@ module.exports = {
     parser: "@typescript-eslint/parser",
   },
   extends: [
-    "plugin:vue/strongly-recommended",
-    "eslint:recommended",
     "@vue/typescript/recommended",
+    "eslint:recommended",
+    "plugin:vue/strongly-recommended",
+    "plugin:vuejs-accessibility/recommended",
     "prettier",
   ],
   plugins: ["@typescript-eslint", "prettier"],
   rules: {
+    "@typescript-eslint/no-unused-vars": "error",
+    "no-unused-vars": "off" /* fixes issue with defineEmits in .vue */,
     "prettier/prettier": "error",
-    // not needed for vue 3
-    "vue/no-multiple-template-root": "off",
+    "vue/no-multiple-template-root": "off" /* not needed for vue 3 */,
+    "vuejs-accessibility/label-has-for": [
+      "error",
+      {
+        required: {
+          every: ["id"],
+        },
+      },
+    ],
   },
 };

@@ -6,7 +6,11 @@ export interface Field {
   value: string | number;
 }
 
-const emit = defineEmits<{ (event: "submit", data: FormData): void }>();
+interface Emits {
+  (event: "submit", data: FormData): void;
+}
+
+const emit = defineEmits<Emits>();
 
 const handleSubmit = (event: Event) => {
   const data = new FormData(event.target as HTMLFormElement);
