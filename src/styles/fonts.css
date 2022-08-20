@@ -59,7 +59,7 @@ textarea {
 
 button,
 input,
-select,
-label {
+select {
   font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
 }
