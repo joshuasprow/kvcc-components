@@ -27,9 +27,9 @@ const emailRegexp =
 
 const _type = computed(() => (props.type ? props.type : InputType.TEXT));
 const _value = ref(props.value);
-const _class = {
+const _class = computed(() => ({
   valid: _value.value ? emailRegexp.test(_value.value) : false,
-};
+}));
 
 const handleInput = (event: Event) => {
   if (!event.target) {
