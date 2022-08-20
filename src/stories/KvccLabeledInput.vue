@@ -5,7 +5,7 @@ import type { InputType } from "../types/input";
 interface Props {
   label: string;
   type?: InputType;
-  id: string;
+  id: string /* required for linking label to input */;
   required?: boolean;
   listId?: string;
 }
