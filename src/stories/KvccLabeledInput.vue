@@ -25,8 +25,9 @@ const emit = defineEmits<Emits>();
 const emailRegexp =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
-const _type = computed(() => (props.type ? props.type : InputType.TEXT));
 const _value = ref(props.value);
+
+const _type = computed(() => (props.type ? props.type : InputType.TEXT));
 const _class = computed(() => ({
   valid: _value.value ? emailRegexp.test(_value.value) : false,
 }));
@@ -55,17 +56,39 @@ const handleInput = (event: Event) => {
       :type="_type"
       v-model="_value"
     />
+    <span />
     <slot v-if="_type === InputType.SEARCH" />
   </KvccFormControl>
 </template>
 
 <style scoped>
-input[type="email"].valid {
+input.valid {
+  border-color: var(--green);
+}
+
+input.valid:focus {
   border-color: var(--green-light);
 }
 
 /* hiding clear button (isn't visible in Firefox anyway) */
 input::-webkit-search-cancel-button {
   appearance: none;
+}
+
+input + span {
+  position: relative;
+}
+
+input + span::before {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  bottom: 0;
+  /* top: 5px; */
+}
+
+input.valid + span::before {
+  content: "✓";
+  color: var(--green);
 }
 </style>

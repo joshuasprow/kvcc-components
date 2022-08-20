@@ -23,13 +23,8 @@ defineProps<{ inputId: string; label: string; required?: boolean }>();
   position: absolute;
   top: 0;
   left: 0;
-  margin-bottom: 0.25rem;
-  margin-top: 0.5rem;
-  margin-left: 0.75rem;
-  color: #1f2937;
+  margin: 0.5rem 0 0.25rem 0.75rem;
   font-size: 0.75rem;
-  line-height: 1rem;
-  font-weight: 100;
   pointer-events: none;
 }
 
@@ -40,27 +35,21 @@ defineProps<{ inputId: string; label: string; required?: boolean }>();
 
 .form-control input,
 .form-control select {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  padding-bottom: 0.5rem;
-  padding-top: 1.5rem;
-  background-color: #ffffff;
-  transition-property: all;
-  transition-duration: 300ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  width: 100%;
-  border-radius: 0.25rem;
-  border-width: 2px;
-  border-color: #6b7280;
-  border-style: solid;
   appearance: none;
-  outline: 0;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  outline: none;
+  padding: 1.5rem 0.75rem 0.5rem 0.75rem;
+  background-color: var(--white);
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  border-color: var(--slate);
+  border-radius: 0.25rem;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: 0 2px 4px 0 var(--shadow);
 }
 
-.form-control input:hover,
-.form-control select:hover {
-  background-color: #ffffff;
-  border-color: #1d4ed8;
+.form-control input:focus,
+.form-control select:focus {
+  border-color: var(--blue);
 }
 </style>

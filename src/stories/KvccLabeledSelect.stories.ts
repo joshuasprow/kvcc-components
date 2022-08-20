@@ -15,7 +15,7 @@ const meta: Meta = {
     },
     label: {
       type: { name: "string", required: true },
-      defaultValue: "Label",
+      defaultValue: "label",
     },
     required: {
       type: { name: "boolean", required: false },

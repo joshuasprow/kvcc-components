@@ -16,7 +16,7 @@ const meta: Meta = {
     },
     label: {
       type: { name: "string", required: true },
-      defaultValue: "Label",
+      defaultValue: "label",
     },
     listId: {
       type: { name: "string", required: false },
@@ -25,7 +25,7 @@ const meta: Meta = {
     },
     placeholder: {
       type: { name: "string", required: false },
-      defaultValue: "Placeholder",
+      defaultValue: "placeholder",
     },
     required: {
       type: { name: "boolean", required: false },
@@ -33,11 +33,9 @@ const meta: Meta = {
     },
     type: {
       type: { name: "enum", required: true, value: Object.values(InputType) },
-      defaultValue: InputType.TEXT,
     },
     value: {
       type: { name: "string", required: false },
-      defaultValue: "Value",
     },
 
     /** slots */
@@ -64,22 +62,27 @@ Default.args = {};
 
 export const Email = Template.bind({});
 Email.args = {
+  label: "email",
+  placeholder: "email@domain.biz",
   type: InputType.EMAIL,
 };
 
 export const Password = Template.bind({});
 Password.args = {
+  label: "password",
   type: InputType.PASSWORD,
 };
 
 export const Search = Template.bind({});
 Search.args = {
+  label: "search",
+  listId: "list-1",
+  type: InputType.SEARCH,
+  value: "option-2",
+
   default: `<datalist id="list-1">
 <option value="option-1">option-1</option>
 <option value="option-2">option-2</option>
 <option value="option-3">option-3</option>
 </datalist>`,
-  listId: "list-1",
-  type: InputType.SEARCH,
-  value: "option-2",
 };
