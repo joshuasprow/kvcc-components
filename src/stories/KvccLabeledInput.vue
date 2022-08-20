@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { InputType } from "../types/input";
 import "../styles/main.css";
+import type { InputType } from "../types/input";
 
 interface Props {
   label: string;
-  type: InputType;
+  type?: InputType;
   id: string;
-  required: boolean;
-  listId: string;
+  required?: boolean;
+  listId?: string;
 }
 
 defineProps<Props>();
@@ -29,10 +29,10 @@ const handleSelect = (event: Event) => emitEvent("select", event);
 </script>
 
 <template>
-  <article>
+  <article class="labeled-input">
     <label :for="id">{{ label }}</label>
     <input
-      v-if="['text', 'search', 'datalist', 'password'].includes(type)"
+      v-if="type && ['text', 'search', 'datalist', 'password'].includes(type)"
       @change="handleChange"
       @input="handleInput"
       :type="type"
