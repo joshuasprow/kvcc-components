@@ -21,10 +21,9 @@ defineProps<{ inputId: string; label: string; required?: boolean }>();
 
 .form-control label {
   position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0.5rem 0 0.25rem 0.75rem;
-  font-size: 0.75rem;
+  top: 0.5rem;
+  left: 0.75rem;
+  font-size: 1rem;
   pointer-events: none;
 }
 
