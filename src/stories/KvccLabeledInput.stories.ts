@@ -17,7 +17,6 @@ const meta: Meta = {
     /** props */
     id: {
       type: { name: "string", required: true },
-      defaultValue: "input-1",
     },
     label: {
       type: { name: "string", required: true },
@@ -26,7 +25,6 @@ const meta: Meta = {
     listId: {
       type: { name: "string", required: false },
       if: { arg: "type", eq: InputType.SEARCH },
-      defaultValue: "list-1",
     },
     placeholder: {
       type: { name: "string", required: false },
@@ -38,6 +36,7 @@ const meta: Meta = {
     },
     type: {
       type: { name: "enum", required: true, value: Object.values(InputType) },
+      defaultValue: InputType.TEXT,
     },
     value: {
       type: { name: "string", required: false },
@@ -78,10 +77,13 @@ const Template: StoryFn<typeof KvccLabeledInput> = (args) => ({
 });
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  id: "default",
+};
 
 export const Email = Template.bind({});
 Email.args = {
+  id: "email",
   label: "email",
   placeholder: "email@domain.biz",
   type: InputType.EMAIL,
@@ -89,12 +91,14 @@ Email.args = {
 
 export const Password = Template.bind({});
 Password.args = {
+  id: "password",
   label: "password",
   type: InputType.PASSWORD,
 };
 
 export const Search = Template.bind({});
 Search.args = {
+  id: "search",
   label: "search",
   listId: "list-1",
   type: InputType.SEARCH,
