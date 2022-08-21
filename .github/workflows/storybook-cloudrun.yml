@@ -14,16 +14,16 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: set commit sha
-        run: |-
-          echo "COMMIT=$(git rev-parse HEAD)" >> $GITHUB_ENV
-          echo "TAG_LATEST=${{ env.IMAGE_URL }}:latest" >> $GITHUB_ENV
-          echo "TAG_COMMIT=${{ env.IMAGE_URL }}:${{ env.COMMIT }}" >> $GITHUB_ENV
-
       - name: checkout
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
+
+      - name: set image tags
+        run: |-
+          echo "COMMIT=$(git rev-parse HEAD)" >> $GITHUB_ENV
+          echo "TAG_LATEST=${{ env.IMAGE_URL }}:latest" >> $GITHUB_ENV
+          echo "TAG_COMMIT=${{ env.IMAGE_URL }}:${{ env.COMMIT }}" >> $GITHUB_ENV
 
       - name: authorize gcloud
         id: auth
