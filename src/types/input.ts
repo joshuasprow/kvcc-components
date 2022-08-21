@@ -8,5 +8,5 @@ export enum InputType {
 export const isInputType = (value: unknown): value is InputType => {
   if (typeof value !== "string") return false;
 
-  return Object.keys(InputType).includes(value as InputType);
+  return Object.values(InputType).includes(value as InputType);
 };
