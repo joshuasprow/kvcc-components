@@ -8,12 +8,18 @@ on:
 
 env:
   PROJECT_ID: baby-stats-10331
-  IMAGE_URL: us-east1-docker.pkg.dev/baby-stats-10331/images/kvcc-components:latest
+  IMAGE_URL: us-east1-docker.pkg.dev/baby-stats-10331/images/kvcc-components
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
+      - name: set commit sha
+        run: |-
+          echo "COMMIT=$(git rev-parse HEAD)" >> $GITHUB_ENV
+          echo "TAG_LATEST=${{ env.IMAGE_URL }}:latest" >> $GITHUB_ENV
+          echo "TAG_COMMIT=${{ env.IMAGE_URL }}:${{ env.COMMIT }}" >> $GITHUB_ENV
+
       - name: checkout
         uses: actions/checkout@v2
         with:
@@ -34,10 +40,29 @@ jobs:
         run: gcloud auth configure-docker us-east1-docker.pkg.dev
 
       - name: build image
-        run: docker build -t ${{ env.IMAGE_URL }} .
+        run: |-
+          docker build \
+            -t ${{ env.TAG_COMMIT }} \
+            -t ${{ env.TAG_LATEST }} \
+            .
 
       - name: push image
-        run: docker push ${{ env.IMAGE_URL }}
+        run: docker push --all-tage ${{ env.IMAGE_URL }}
 
-      - name: update service
+      - name: update service.yml
+        uses: fjogeleit/yaml-update-action@main
+        with:
+          valueFile: service.yml
+          propertyPath: spec.template.spec.containers[0].image
+          value: ${{ env.TAG_COMMIT }}
+          commitChange: false
+          updateFile: true
+
+      - name: upload service.yml artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: service.${{ env.COMMIT }}.yml
+          path: service.yml
+
+      - name: replace service
         run: gcloud run services replace --quiet service.yml
