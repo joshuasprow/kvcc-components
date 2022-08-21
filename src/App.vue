@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import KvFormPage from "./stories/KvFormPage.vue";
+import KvButton from "./components/KvButton.vue";
 </script>
 
 <template>
-  <KvFormPage />
+  <KvButton text="" />
 </template>
