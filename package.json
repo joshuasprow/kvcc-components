@@ -12,7 +12,7 @@
     "lint:fix": "npm run lint -- --fix",
     "storybook": "start-storybook -p 6006 --no-manager-cache",
     "storybook:build": "build-storybook --output-dir dist",
-    "storybook:deploy": "gsutil cp -r dist/* gs://kvcc-components.sprow.info/"
+    "storybook:deploy": "gsutil -m cp -r dist/* gs://kvcc-components.sprow.info/"
   },
   "dependencies": {
     "vue": "^3.2.37"
