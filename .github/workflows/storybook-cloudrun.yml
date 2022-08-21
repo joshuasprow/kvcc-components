@@ -48,9 +48,6 @@ jobs:
             -t ${{ env.TAG_LATEST }} \
             .
 
-      - name: push image
-        run: docker push --all-tage ${{ env.IMAGE_URL }}
-
       - name: update service.yml
         uses: fjogeleit/yaml-update-action@main
         with:
@@ -65,6 +62,9 @@ jobs:
         with:
           name: service.${{ env.COMMIT }}.yml
           path: service.yml
+
+      - name: push image
+        run: docker push --all-tags ${{ env.IMAGE_URL }}
 
       - name: replace service
         run: gcloud run services replace --quiet service.yml
