@@ -39,3 +39,6 @@ jobs:
 
       - name: push image
         run: docker push ${{ env.TAG }}
+
+      - name: update service
+        run: gcloud beta run services replace --quiet service.yml
