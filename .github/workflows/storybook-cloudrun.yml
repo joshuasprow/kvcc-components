@@ -1,0 +1,40 @@
+name: storybook-cloudrun
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  TAG: us-east1-docker.pkg.dev/baby-stats/images/kvcc-components:latest
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: authorize gcloud
+        id: auth
+        uses: google-github-actions/auth@v0
+        with:
+          credentials_json: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+
+      - name: setup gcloud cli
+        uses: google-github-actions/setup-gcloud@v0
+        with:
+          project_id: baby-stats
+          install_components: beta
+
+      - name: docker login
+        run: gcloud auth configure-docker us-east1-docker.pkg.dev
+
+      - name: build image
+        run: docker build -t ${{ env.TAG }} .
+
+      - name: push image
+        run: docker push ${{ env.TAG }}
