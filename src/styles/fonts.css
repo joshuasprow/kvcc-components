@@ -7,12 +7,8 @@
   font-weight: 400;
   src: url("../fonts/pt-sans-v17-latin-regular.eot");
   src: local(""),
-    url("../fonts/pt-sans-v17-latin-regular.eot?#iefix")
-      format("embedded-opentype"),
     url("../fonts/pt-sans-v17-latin-regular.woff2") format("woff2"),
-    url("../fonts/pt-sans-v17-latin-regular.woff") format("woff"),
-    url("../fonts/pt-sans-v17-latin-regular.ttf") format("truetype"),
-    url("../fonts/pt-sans-v17-latin-regular.svg#PTSans") format("svg");
+    url("../fonts/pt-sans-v17-latin-regular.woff") format("woff");
 }
 
 /* roboto-regular - latin */
@@ -21,13 +17,8 @@
   font-style: normal;
   font-weight: 400;
   src: url("../fonts/roboto-v30-latin-regular.eot");
-  src: local(""),
-    url("../fonts/roboto-v30-latin-regular.eot?#iefix")
-      format("embedded-opentype"),
-    url("../fonts/roboto-v30-latin-regular.woff2") format("woff2"),
-    url("../fonts/roboto-v30-latin-regular.woff") format("woff"),
-    url("../fonts/roboto-v30-latin-regular.ttf") format("truetype"),
-    url("../fonts/roboto-v30-latin-regular.svg#Roboto") format("svg");
+  src: local(""), url("../fonts/roboto-v30-latin-regular.woff2") format("woff2"),
+    url("../fonts/roboto-v30-latin-regular.woff") format("woff");
 }
 
 /* Thanks! https://css-tricks.com/snippets/css/fluid-typography/ */
