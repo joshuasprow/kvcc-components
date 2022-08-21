@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/vue3";
-import KvccFormPage from "./KvccFormPage.vue";
+import KvccFormPage from "../components/KvccFormPage.vue";
 
 const meta: Meta<typeof KvccFormPage> = {
   title: "Example/KVCC Form Page",

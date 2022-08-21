@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/vue3";
+import KvccLabeledSelect from "../components/KvccLabeledSelect.vue";
 import { buildTemplate } from "../lib/stories";
-import KvccLabeledSelect from "./KvccLabeledSelect.vue";
 
 const meta: Meta = {
   title: "Example/KVCC Labeled Select",

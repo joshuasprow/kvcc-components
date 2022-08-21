@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/vue3";
+import KvccHeading from "../components/KvccHeading.vue";
 import { HEADING_TYPES } from "../types/heading";
-import KvccHeading from "./KvccHeading.vue";
 
 const meta: Meta<typeof KvccHeading> = {
   title: "Example/KVCC Heading",

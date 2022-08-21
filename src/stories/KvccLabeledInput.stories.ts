@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from "@storybook/vue3";
+import KvccLabeledInput from "../components/KvccLabeledInput.vue";
 import { buildTemplate } from "../lib/stories";
 import { InputType } from "../types/input";
-import KvccLabeledInput from "./KvccLabeledInput.vue";
 
 const meta: Meta = {
   title: "Example/KVCC Labeled Input",

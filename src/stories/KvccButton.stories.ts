@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from "@storybook/vue3";
+import KvccButton from "../components/KvccButton.vue";
 import { ButtonColor, ButtonType } from "../types/button";
-import KvccButton from "./KvccButton.vue";
 
 const meta: Meta<typeof KvccButton> = {
   title: "Example/KVCC Button",

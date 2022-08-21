@@ -1,5 +1,5 @@
 import { Meta, StoryFn } from "@storybook/vue3";
-import KvccLoader from "./KvccLoader.vue";
+import KvccLoader from "../components/KvccLoader.vue";
 
 const meta: Meta<typeof KvccLoader> = {
   title: "Example/KVCC Loader",
