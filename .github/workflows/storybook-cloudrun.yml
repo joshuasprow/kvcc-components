@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0
 
       - name: set commit sha
-        run: echo "COMMIT=$(git rev-parse HEAD)" >> $GITHUB_ENV
+        run: echo "COMMIT=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
 
       - name: set image tags
         run: |-
