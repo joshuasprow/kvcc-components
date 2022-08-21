@@ -24,10 +24,12 @@ const config = {
     },
   },
   viteFinal: (config, { configType }) => {
-    if (configType === "PRODUCTION") {
-      // fixes absolute path to iframe.html, allowing successful deployment to github pages
-      config.base = "./";
-    }
+    console.log(JSON.stringify({ config }));
+    console.log(JSON.stringify({ configType }));
+    // if (configType === "PRODUCTION") {
+    //   // fixes absolute path to iframe.html, allowing successful deployment to github pages
+    //   config.base = "./";
+    // }
 
     return config;
   },
