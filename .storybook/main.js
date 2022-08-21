@@ -26,7 +26,7 @@ const config = {
   },
   async viteFinal(config, { configType }) {
     if (configType === "PRODUCTION") {
-      config.base = "./";
+      config.root = "./";
     }
 
     return config;
