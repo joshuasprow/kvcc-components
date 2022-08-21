@@ -1,9 +1,9 @@
 import { Meta, StoryFn } from "@storybook/vue3";
-import KvccLoader from "../components/KvccLoader.vue";
+import KvLoader from "../components/KvLoader.vue";
 
-const meta: Meta<typeof KvccLoader> = {
+const meta: Meta<typeof KvLoader> = {
   title: "Example/KVCC Loader",
-  component: KvccLoader,
+  component: KvLoader,
   argTypes: {
     text: {
       type: { name: "string" },
@@ -13,12 +13,12 @@ const meta: Meta<typeof KvccLoader> = {
 
 export default meta;
 
-const Template: StoryFn<typeof KvccLoader> = (args) => ({
-  components: { KvccLoader },
+const Template: StoryFn<typeof KvLoader> = (args) => ({
+  components: { KvLoader },
   setup() {
     return { args };
   },
-  template: '<kvcc-loader v-bind="args" />',
+  template: '<kv-loader v-bind="args" />',
 });
 
 export const Default = Template.bind({});

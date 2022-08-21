@@ -1,10 +1,10 @@
 import { Meta, StoryFn } from "@storybook/vue3";
-import KvccHeading from "../components/KvccHeading.vue";
+import KvHeading from "../components/KvHeading.vue";
 import { HEADING_TYPES } from "../types/heading";
 
-const meta: Meta<typeof KvccHeading> = {
+const meta: Meta<typeof KvHeading> = {
   title: "Example/KVCC Heading",
-  component: KvccHeading,
+  component: KvHeading,
   argTypes: {
     text: {
       type: { name: "string" },
@@ -17,12 +17,12 @@ const meta: Meta<typeof KvccHeading> = {
 
 export default meta;
 
-const Template: StoryFn<typeof KvccHeading> = (args) => ({
-  components: { KvccHeading },
+const Template: StoryFn<typeof KvHeading> = (args) => ({
+  components: { KvHeading },
   setup() {
     return { args };
   },
-  template: '<kvcc-heading v-bind="args" />',
+  template: '<kv-heading v-bind="args" />',
 });
 
 export const Default = Template.bind({});

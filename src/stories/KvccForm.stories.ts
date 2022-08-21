@@ -1,17 +1,17 @@
 import { Meta, StoryFn } from "@storybook/vue3";
-import KvccButton from "../components/KvccButton.vue";
-import KvccForm from "../components/KvccForm.vue";
-import KvccLabeledInput from "../components/KvccLabeledInput.vue";
-import KvccLabeledSelect from "../components/KvccLabeledSelect.vue";
+import KvButton from "../components/KvButton.vue";
+import KvForm from "../components/KvForm.vue";
+import KvLabeledInput from "../components/KvLabeledInput.vue";
+import KvLabeledSelect from "../components/KvLabeledSelect.vue";
 import { InputType } from "../types/input";
 
-const meta: Meta<typeof KvccForm> = {
+const meta: Meta<typeof KvForm> = {
   title: "Example/KVCC Form",
-  component: KvccForm,
+  component: KvForm,
   subcomponents: {
-    KvccButton,
-    KvccLabeledInput,
-    KvccLabeledSelect,
+    KvButton,
+    KvLabeledInput,
+    KvLabeledSelect,
   },
   argTypes: {
     /** actions */
@@ -21,21 +21,21 @@ const meta: Meta<typeof KvccForm> = {
 
 export default meta;
 
-const Template: StoryFn<typeof KvccForm> = (args) => ({
-  components: { KvccButton, KvccForm, KvccLabeledInput, KvccLabeledSelect },
+const Template: StoryFn<typeof KvForm> = (args) => ({
+  components: { KvButton, KvForm, KvLabeledInput, KvLabeledSelect },
   setup() {
     return { args };
   },
-  template: `<kvcc-form v-bind="args">
-  <kvcc-labeled-input label="Name" id="name" value="Name"></kvcc-labeled-input>
-  <kvcc-labeled-input label="Email" id="email" type="${InputType.EMAIL}" value="email@domain.example"></kvcc-labeled-input>
-  <kvcc-labeled-select label="Color" id="color" value="red">
+  template: `<kv-form v-bind="args">
+  <kv-labeled-input label="Name" id="name" value="Name"></kv-labeled-input>
+  <kv-labeled-input label="Email" id="email" type="${InputType.EMAIL}" value="email@domain.example"></kv-labeled-input>
+  <kv-labeled-select label="Color" id="color" value="red">
     <option value="red">Red</option>
     <option value="green">Green</option>
     <option value="blue">Blue</option>
-  </kvcc-labeled-select>
-  <kvcc-button type="submit" text="Submit"></kvcc-button>
-</kvcc-form>`,
+  </kv-labeled-select>
+  <kv-button type="submit" text="Submit"></kv-button>
+</kv-form>`,
 });
 
 export const Default = Template.bind({});

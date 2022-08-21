@@ -2,7 +2,7 @@
 import { computed, ref } from "vue";
 import "../styles/main.css";
 import { InputType } from "../types/input";
-import KvccFormControl from "./KvccFormControl.vue";
+import KvFormControl from "./KvFormControl.vue";
 
 interface Props {
   label: string;
@@ -43,7 +43,7 @@ const handleInput = (event: Event) => {
 </script>
 
 <template>
-  <KvccFormControl :input-id="id" :label="label" :required="required">
+  <KvFormControl :input-id="id" :label="label" :required="required">
     <!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label -->
     <input
       @input="handleInput"
@@ -58,7 +58,7 @@ const handleInput = (event: Event) => {
     />
     <span />
     <slot v-if="_type === InputType.SEARCH" />
-  </KvccFormControl>
+  </KvFormControl>
 </template>
 
 <style scoped>

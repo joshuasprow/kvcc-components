@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import KvccFormPage from "./stories/KvccFormPage.vue";
+import KvFormPage from "./stories/KvFormPage.vue";
 </script>
 
 <template>
-  <KvccFormPage />
+  <KvFormPage />
 </template>

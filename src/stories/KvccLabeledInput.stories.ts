@@ -1,11 +1,11 @@
 import { Meta, StoryFn } from "@storybook/vue3";
-import KvccLabeledInput from "../components/KvccLabeledInput.vue";
+import KvLabeledInput from "../components/KvLabeledInput.vue";
 import { buildTemplate } from "../lib/stories";
 import { InputType } from "../types/input";
 
 const meta: Meta = {
   title: "Example/KVCC Labeled Input",
-  component: KvccLabeledInput,
+  component: KvLabeledInput,
   argTypes: {
     /** actions */
     onInput: {},
@@ -47,10 +47,10 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: StoryFn<typeof KvccLabeledInput> = (args) => ({
-  components: { KvccLabeledInput },
+const Template: StoryFn<typeof KvLabeledInput> = (args) => ({
+  components: { KvLabeledInput },
   setup: () => ({ args }),
-  template: buildTemplate("kvcc-labeled-input", args),
+  template: buildTemplate("kv-labeled-input", args),
 });
 
 export const Default = Template.bind({});

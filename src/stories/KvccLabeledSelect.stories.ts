@@ -1,10 +1,10 @@
 import { Meta, StoryFn } from "@storybook/vue3";
-import KvccLabeledSelect from "../components/KvccLabeledSelect.vue";
+import KvLabeledSelect from "../components/KvLabeledSelect.vue";
 import { buildTemplate } from "../lib/stories";
 
 const meta: Meta = {
   title: "Example/KVCC Labeled Select",
-  component: KvccLabeledSelect,
+  component: KvLabeledSelect,
   argTypes: {
     /** actions */
     onInput: {},
@@ -36,10 +36,10 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: StoryFn<typeof KvccLabeledSelect> = (args) => ({
-  components: { KvccLabeledSelect },
+const Template: StoryFn<typeof KvLabeledSelect> = (args) => ({
+  components: { KvLabeledSelect },
   setup: () => ({ args }),
-  template: buildTemplate("kvcc-labeled-select", args),
+  template: buildTemplate("kv-labeled-select", args),
 });
 
 export const Default = Template.bind({});

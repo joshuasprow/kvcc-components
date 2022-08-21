@@ -1,10 +1,10 @@
 import { Meta, StoryFn } from "@storybook/vue3";
-import KvccButton from "../components/KvccButton.vue";
+import KvButton from "../components/KvButton.vue";
 import { ButtonColor, ButtonType } from "../types/button";
 
-const meta: Meta<typeof KvccButton> = {
+const meta: Meta<typeof KvButton> = {
   title: "Example/KVCC Button",
-  component: KvccButton,
+  component: KvButton,
   argTypes: {
     color: {
       type: { name: "enum", value: ["", ...Object.values(ButtonColor)] },
@@ -23,12 +23,12 @@ const meta: Meta<typeof KvccButton> = {
 
 export default meta;
 
-const Template: StoryFn<typeof KvccButton> = (args) => ({
-  components: { KvccButton },
+const Template: StoryFn<typeof KvButton> = (args) => ({
+  components: { KvButton },
   setup() {
     return { args };
   },
-  template: '<kvcc-button v-bind="args" />',
+  template: '<kv-button v-bind="args" />',
 });
 
 export const Default = Template.bind({});

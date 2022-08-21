@@ -4,7 +4,7 @@ interface ArgsWithSlot extends Args {
   default: string;
 }
 
-type ComponentName = `kvcc-${string}`;
+type ComponentName = `kv-${string}`;
 
 const argsHaveDefaultSlot = (args: Args): args is ArgsWithSlot => {
   if (!args) return false;
