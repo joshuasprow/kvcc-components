@@ -7,7 +7,8 @@ on:
   workflow_dispatch:
 
 env:
-  TAG: us-east1-docker.pkg.dev/baby-stats/images/kvcc-components:latest
+  PROJECT_ID: baby-stats-10331
+  TAG: us-east1-docker.pkg.dev/${{ env.PROJECT_ID }}/images/kvcc-components:latest
 
 jobs:
   publish:
@@ -27,7 +28,7 @@ jobs:
       - name: setup gcloud cli
         uses: google-github-actions/setup-gcloud@v0
         with:
-          project_id: baby-stats
+          project_id: ${{ env.PROJECT_ID }}
           install_components: beta
 
       - name: docker login
