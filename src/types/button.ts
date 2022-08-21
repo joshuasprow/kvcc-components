@@ -1,17 +1,21 @@
-export const BUTTON_COLOR = ["blue", "green", "red"] as const;
-
-export type ButtonColor = typeof BUTTON_COLOR[number];
+export enum ButtonColor {
+  BLUE = "blue",
+  GREEN = "green",
+  RED = "red",
+}
 
 export const isButtonColor = (value: unknown): value is ButtonColor => {
   if (typeof value !== "string") return false;
-  return BUTTON_COLOR.includes(value as ButtonColor);
+  return Object.values(ButtonColor).includes(value as ButtonColor);
 };
 
-export const BUTTON_TYPE = ["button", "submit", "reset"] as const;
-
-export type ButtonType = typeof BUTTON_TYPE[number];
+export enum ButtonType {
+  BUTTON = "button",
+  SUBMIT = "submit",
+  RESET = "reset",
+}
 
 export const isButtonType = (value: unknown): value is ButtonType => {
   if (typeof value !== "string") return false;
-  return BUTTON_TYPE.includes(value as ButtonType);
+  return Object.values(ButtonType).includes(value as ButtonType);
 };

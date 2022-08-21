@@ -12,7 +12,7 @@ interface Props {
   type?: ButtonType;
 }
 
-const props = withDefaults(defineProps<Props>(), { type: "button" });
+const props = withDefaults(defineProps<Props>(), { type: ButtonType.BUTTON });
 
 const style = computed(() => ({
   "--bg-color": `var(--${props.color || "primary"})`,
