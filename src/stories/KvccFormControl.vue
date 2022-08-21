@@ -23,7 +23,8 @@ defineProps<{ inputId: string; label: string; required?: boolean }>();
   position: absolute;
   top: 0.5rem;
   left: 0.75rem;
-  font-size: 1rem;
+  color: var(--slate-light);
+  font-size: 0.75rem;
   pointer-events: none;
 }
 
