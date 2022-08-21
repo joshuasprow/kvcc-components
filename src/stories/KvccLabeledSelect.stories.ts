@@ -1,4 +1,5 @@
 import { Meta, StoryFn } from "@storybook/vue3";
+import { buildTemplate } from "../lib/stories";
 import KvccLabeledSelect from "./KvccLabeledSelect.vue";
 
 const meta: Meta = {
@@ -37,12 +38,8 @@ export default meta;
 
 const Template: StoryFn<typeof KvccLabeledSelect> = (args) => ({
   components: { KvccLabeledSelect },
-  setup() {
-    return { args };
-  },
-  template: `<kvcc-labeled-select v-bind="args">
-<template v-if="${"default" in args}" v-slot>${args.default}</template>
-</kvcc-labeled-select>`,
+  setup: () => ({ args }),
+  template: buildTemplate("kvcc-labeled-select", args),
 });
 
 export const Default = Template.bind({});
