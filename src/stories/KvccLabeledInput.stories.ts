@@ -1,11 +1,7 @@
-import { Args } from "@storybook/csf";
 import { Meta, StoryFn } from "@storybook/vue3";
+import { buildTemplate } from "../lib/stories";
 import { InputType } from "../types/input";
 import KvccLabeledInput from "./KvccLabeledInput.vue";
-
-interface ArgsWithSlot extends Args {
-  default: string;
-}
 
 const meta: Meta = {
   title: "Example/KVCC Labeled Input",
@@ -51,29 +47,10 @@ const meta: Meta = {
 
 export default meta;
 
-const argsHaveDefaultSlot = (args: Args): args is ArgsWithSlot => {
-  if (!args) return false;
-
-  if (!Object.prototype.hasOwnProperty.call(args, "default")) return false;
-
-  return typeof (args as ArgsWithSlot).default === "string";
-};
-
-const buildTemplate = (args: Args): string => {
-  const template = (slot: string) =>
-    `<kvcc-labeled-input v-bind="args">${slot}</kvcc-labeled-input>`;
-
-  if (argsHaveDefaultSlot(args)) {
-    return template(args.default);
-  }
-
-  return template("");
-};
-
 const Template: StoryFn<typeof KvccLabeledInput> = (args) => ({
   components: { KvccLabeledInput },
   setup: () => ({ args }),
-  template: buildTemplate(args),
+  template: buildTemplate("kvcc-labeled-input", args),
 });
 
 export const Default = Template.bind({});
