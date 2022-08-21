@@ -11,8 +11,8 @@
     "lint": "eslint src --ext .ts,.vue --fix",
     "lint:fix": "npm run lint -- --fix",
     "storybook": "start-storybook -p 6006 --no-manager-cache",
-    "storybook:build": "build-storybook --output-dir docs",
-    "storybook:deploy": "storybook-to-ghpages --existing-output-dir docs --source-branch main"
+    "storybook:build": "build-storybook --output-dir dist",
+    "storybook:deploy": "gsutil cp -r dist/* gs://kvcc-components.sprow.info/"
   },
   "dependencies": {
     "vue": "^3.2.37"
@@ -25,7 +25,6 @@
     "@storybook/addon-interactions": "^6.5.10",
     "@storybook/addon-links": "^6.5.10",
     "@storybook/builder-vite": "^0.2.2",
-    "@storybook/storybook-deployer": "^2.8.12",
     "@storybook/testing-library": "^0.0.13",
     "@storybook/vue3": "^6.5.10",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
