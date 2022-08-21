@@ -8,7 +8,7 @@ on:
 
 env:
   PROJECT_ID: baby-stats-10331
-  TAG: us-east1-docker.pkg.dev/${{ env.PROJECT_ID }}/images/kvcc-components:latest
+  TAG: us-east1-docker.pkg.dev/baby-stats-10331/images/kvcc-components:latest
 
 jobs:
   publish:
