@@ -1,47 +1,54 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from "vue";
+import KvAccentMark from "./Logos/KvAccentMark.vue";
+import { Color } from "../types/colors";
 
-// import KvLogo from "./Logos/kvLogo";
 defineProps<{ name: string; button: boolean }>();
 
-const x_down = ref();
-const y_down = ref();
+const emit = defineEmits<{
+  (event: "close"): void;
+  (event: "toggle"): void;
+  (event: "visiblechange", visible: boolean): void;
+}>();
 
-const header_visible = ref(false);
+const xDown = ref();
+const yDown = ref();
 
-// const fillColor = "#2b6cb0";
-const header_hidden_styling = { left: "-16rem" };
+const visible = ref(false);
+
+const style = { left: "-16rem" };
 
 const handleTouchStart = (e: TouchEvent) => {
   const firstTouch = e.touches[0];
-  x_down.value = firstTouch.clientX;
-  y_down.value = firstTouch.clientY;
+  xDown.value = firstTouch.clientX;
+  yDown.value = firstTouch.clientY;
 };
 
 const handleTouchMove = (e: TouchEvent) => {
-  if (!x_down.value || !y_down.value) {
+  if (!xDown.value || !yDown.value) {
     return;
   }
 
   const xUp = e.touches[0].clientX;
   const yUp = e.touches[0].clientY;
-  const xDiff = x_down.value - xUp;
-  const yDiff = y_down.value - yUp;
+  const xDiff = xDown.value - xUp;
+  const yDiff = yDown.value - yUp;
 
   if (Math.abs(xDiff) > Math.abs(yDiff)) {
-    header_visible.value = xDiff <= 0;
+    visible.value = xDiff <= 0;
+    emit("visiblechange", visible.value);
   }
 
-  x_down.value = null;
-  y_down.value = null;
+  xDown.value = null;
+  yDown.value = null;
 };
 
 // const toggle = () => {
-//   header_visible.value = !header_visible.value;
+//   visible.value = !visible.value;
 // };
 
 // const hide = () => {
-//   header_visible.value = false;
+//   visible.value = false;
 // };
 
 onMounted(() => {
@@ -132,9 +139,9 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <header :style="header_visible ? undefined : header_hidden_styling">
+  <header :style="visible ? undefined : style">
     <section class="">
-      <!-- <kv-logo class="w-48 ml-2" /> -->
+      <kv-accent-mark :fill="Color.COUGAR_BLUE" />
       <span></span>
       <p>{{ name }}</p>
     </section>
@@ -174,6 +181,7 @@ section {
 }
 
 span {
+  background: #2b6cb0;
   margin-left: 0.5rem;
   width: 12rem;
 }

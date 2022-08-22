@@ -1,12 +1,13 @@
 <script lang="ts" setup>
 import { computed } from "@vue/reactivity";
 import { withDefaults } from "vue";
-import { ButtonColor, ButtonType } from "../types/button";
 import "../styles/main.css";
+import { ButtonType } from "../types/button";
+import { Color } from "../types/colors";
 
 interface Props {
   // eslint-disable-next-line vue/require-default-prop
-  color?: ButtonColor;
+  color?: Color;
   disabled?: boolean;
   text: string;
   type?: ButtonType;

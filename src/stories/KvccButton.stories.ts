@@ -1,13 +1,14 @@
 import { Meta, StoryFn } from "@storybook/vue3";
 import KvButton from "../components/KvButton.vue";
-import { ButtonColor, ButtonType } from "../types/button";
+import { ButtonType } from "../types/button";
+import { Color } from "../types/colors";
 
 const meta: Meta<typeof KvButton> = {
   title: "Example/KVCC Button",
   component: KvButton,
   argTypes: {
     color: {
-      type: { name: "enum", value: ["", ...Object.values(ButtonColor)] },
+      type: { name: "enum", value: Object.values(Color) },
       defaultValue: "",
     },
     disabled: {
