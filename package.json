@@ -10,7 +10,7 @@
     "format:fix": "npm run format -- --write",
     "lint": "eslint src --ext .ts,.vue",
     "lint:fix": "npm run lint -- --fix",
-    "storybook": "start-storybook -p 6006 --no-manager-cache",
+    "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook --output-dir dist",
     "prepare": "husky install"
   },
