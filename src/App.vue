@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import KvButton from "./components/KvButton.vue";
+import KvSider from "./components/KvSider.vue";
 </script>
 
 <template>
-  <KvButton text="" />
+  <KvSider />
 </template>
