@@ -6,11 +6,26 @@ import KvSiderToggle from "./KvSiderToggle.vue";
 
 const visible = ref(false);
 
-const handleToggle = () => (visible.value = !visible.value);
+const handleVisiblechange = (v: boolean) => {
+  console.log({ v });
+  visible.value = v;
+};
+
+const handleToggle = () => {
+  visible.value = !visible.value;
+  console.log("toggle", { visible: visible.value });
+};
 </script>
 
 <template>
-  <KvSiderHeader name="Header" button>Header</KvSiderHeader>
+  <KvSiderHeader
+    name="Header"
+    button
+    @visiblechange="handleVisiblechange"
+    :visible="visible"
+  >
+    Header
+  </KvSiderHeader>
   <KvSiderToggle @toggle="handleToggle">Toggle</KvSiderToggle>
-  <KvSiderContent>Content</KvSiderContent>
+  <KvSiderContent :visible="visible">Content</KvSiderContent>
 </template>

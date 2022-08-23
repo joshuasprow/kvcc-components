@@ -3,18 +3,22 @@ import { onBeforeUnmount, onMounted, ref } from "vue";
 import KvAccentMark from "./Logos/KvAccentMark.vue";
 import { Color } from "../types/colors";
 
-defineProps<{ name: string; button: boolean }>();
-
 const emit = defineEmits<{
   (event: "close"): void;
   (event: "toggle"): void;
   (event: "visiblechange", visible: boolean): void;
 }>();
 
+const props = defineProps<{
+  name: string;
+  button: boolean;
+  visible?: boolean;
+}>();
+
+const visible = ref(props.visible || false);
+
 const xDown = ref();
 const yDown = ref();
-
-const visible = ref(false);
 
 const style = { left: "-16rem" };
 
@@ -29,6 +33,7 @@ const handleTouchMove = (e: TouchEvent) => {
     return;
   }
 
+  // TODO: come up with better explanation for this 🙈
   const xUp = e.touches[0].clientX;
   const yUp = e.touches[0].clientY;
   const xDiff = xDown.value - xUp;
