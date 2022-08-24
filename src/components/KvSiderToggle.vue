@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// TODO: Figure out how to make Kv*Sider components work together
 const emit = defineEmits<{ (event: "toggle"): void }>();
 
 const handleClick = () => emit("toggle");

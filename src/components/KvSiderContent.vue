@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// TODO: Figure out how to make Kv*Sider components work together
 defineProps<{ visible: boolean }>();
 const emit = defineEmits<{ (event: "close"): void }>();
 

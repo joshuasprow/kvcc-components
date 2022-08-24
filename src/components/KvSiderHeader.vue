@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// TODO: Figure out how to make Kv*Sider components work together
 import { onBeforeUnmount, onMounted, ref } from "vue";
 import KvAccentMark from "./Logos/KvAccentMark.vue";
 import { Color } from "../types/colors";
@@ -145,7 +146,7 @@ onBeforeUnmount(() => {
 
 <template>
   <header :style="visible ? undefined : style">
-    <section class="">
+    <section>
       <kv-accent-mark :fill="Color.COUGAR_BLUE" />
       <span></span>
       <p>{{ name }}</p>
