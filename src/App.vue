@@ -1,7 +1,26 @@
 <script setup lang="ts">
-import KvSider from "./components/KvSider.vue";
+import { ref } from "vue";
+
+const visible = ref(true);
 </script>
 
 <template>
-  <KvSider />
+  <button @click="() => (visible = !visible)">
+    {{ visible ? "hide" : "show" }}
+  </button>
+  <transition name="fade" mode="out-in">
+    <p v-if="visible">Hi!</p>
+  </transition>
 </template>
+
+<style>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
